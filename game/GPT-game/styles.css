@@ -1,0 +1,73 @@
+:root {
+  color-scheme: dark;
+  --bg-1: #04111d;
+  --bg-2: #0a2740;
+  --bg-3: #123e5c;
+  --text: #edfaff;
+  --muted: #98bfd1;
+  --frame: rgba(180, 231, 255, 0.16);
+  --shadow: rgba(0, 15, 28, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: "Trebuchet MS", "Avenir Next", sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(36, 132, 173, 0.28), transparent 34%),
+    linear-gradient(160deg, var(--bg-1), var(--bg-2) 55%, var(--bg-3));
+  color: var(--text);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.page-shell {
+  width: min(1400px, 100%);
+  display: grid;
+  gap: 16px;
+}
+
+.hud-copy {
+  padding: 8px 4px;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.hud-copy h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 0.95;
+}
+
+.hud-copy p:last-child {
+  max-width: 62ch;
+  color: #d2eef8;
+  margin: 10px 0 0;
+}
+
+#app {
+  border: 1px solid var(--frame);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 24px 70px var(--shadow);
+  backdrop-filter: blur(8px);
+}
+
+canvas {
+  display: block;
+}

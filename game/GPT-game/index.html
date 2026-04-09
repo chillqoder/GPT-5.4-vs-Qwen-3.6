@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GPT Game | Cell Survival</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23041723'/%3E%3Ccircle cx='32' cy='32' r='18' fill='%238ef1ff'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="hud-copy">
+        <p class="eyebrow">Phaser 3 Survival Prototype</p>
+        <h1>Grow, hunt, evolve.</h1>
+        <p>
+          Glide toward the cursor, absorb food and weaker molecules, and survive
+          long enough to reach Stage 5.
+        </p>
+      </div>
+      <div id="app" aria-label="Game canvas"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.90.0/dist/phaser.min.js"></script>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

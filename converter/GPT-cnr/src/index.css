@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+  * {
+    @apply border-slate-800/80;
+  }
+
+  html {
+    @apply bg-[#0b0f19];
+  }
+
+  body {
+    @apply min-h-screen bg-[#0b0f19] font-sans text-slate-100;
+    background-image:
+      radial-gradient(circle at top left, rgba(59, 130, 246, 0.18), transparent 32%),
+      radial-gradient(circle at top right, rgba(34, 197, 94, 0.12), transparent 24%),
+      linear-gradient(180deg, #0b0f19 0%, #0f172a 42%, #09111f 100%);
+    margin: 0;
+  }
+
+  body::before,
+  body::after {
+    content: '';
+    position: fixed;
+    inset: auto;
+    pointer-events: none;
+    z-index: 0;
+    border-radius: 9999px;
+    filter: blur(72px);
+    opacity: 0.65;
+  }
+
+  body::before {
+    background: rgba(59, 130, 246, 0.22);
+    height: 18rem;
+    right: 12%;
+    top: 5rem;
+    width: 18rem;
+  }
+
+  body::after {
+    background: rgba(16, 185, 129, 0.14);
+    bottom: 8rem;
+    height: 16rem;
+    left: 10%;
+    width: 16rem;
+  }
+
+  button,
+  input,
+  select {
+    font: inherit;
+  }
+
+  input::placeholder {
+    @apply text-slate-500;
+  }
+
+  ::selection {
+    @apply bg-sky-400/30 text-white;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply relative border border-white/10 bg-slate-950/45 shadow-[0_24px_80px_rgba(2,8,23,0.45)] backdrop-blur-xl;
+  }
+
+  .soft-grid {
+    background-image:
+      linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+    background-position: center;
+    background-size: 28px 28px;
+  }
+
+  .field-shell {
+    @apply rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white transition focus-within:border-sky-300/60 focus-within:bg-white/10;
+  }
+}
+
+#root {
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}

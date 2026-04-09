@@ -1,0 +1,323 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap');
+@import 'tailwindcss';
+
+:root {
+  --ink: #0d0d0d;
+  --acid: #e8f227;
+  --paper: #f5f0e8;
+  --ash: #a8a49c;
+  --vermillion: #d4341a;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+  background: var(--paper);
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(212, 52, 26, 0.05), transparent 30%),
+    linear-gradient(180deg, rgba(245, 240, 232, 0.95), rgba(245, 240, 232, 1));
+  color: var(--ink);
+  font-family: 'DM Mono', monospace;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  opacity: 0.04;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (pointer: fine) {
+  body,
+  a,
+  button,
+  input,
+  textarea {
+    cursor: none;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+img {
+  display: block;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.ui-label {
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+}
+
+.nav-link {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  padding: 0.6rem 0.8rem;
+  font-size: 11px;
+  letter-spacing: 0.35em;
+}
+
+.nav-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  background: var(--acid);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-link:hover {
+  color: var(--ink);
+}
+
+.nav-link:hover::before {
+  transform: scaleY(1);
+}
+
+.blink-badge {
+  animation: badgeBlink 1.25s steps(2, end) infinite;
+}
+
+.hero-display,
+.section-title {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  line-height: 0.88;
+  letter-spacing: -0.08em;
+}
+
+.hero-accent {
+  color: var(--vermillion);
+  font-style: italic;
+}
+
+.editorial-quote {
+  margin: 0;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+}
+
+.ticker-track {
+  animation: marquee 30s linear infinite;
+}
+
+.ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+.cta-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  overflow: hidden;
+  border: 1px solid var(--ink);
+  background: var(--acid);
+  padding: 1rem 1.25rem;
+  font-size: 11px;
+  letter-spacing: 0.38em;
+  transition:
+    color 0.4s ease,
+    border-color 0.4s ease,
+    transform 0.4s ease;
+}
+
+.cta-link::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateY(101%);
+  background: var(--ink);
+  transition: transform 0.4s ease;
+}
+
+.cta-link:hover {
+  color: var(--acid);
+}
+
+.cta-link:hover::before,
+.submit-shell:hover .button-fill {
+  transform: translateY(0);
+}
+
+.cta-link span,
+.cta-link svg {
+  position: relative;
+  z-index: 1;
+}
+
+.work-card {
+  transition:
+    transform 0.5s ease,
+    background-color 0.5s ease;
+}
+
+.work-card:hover {
+  transform: translateY(-6px);
+}
+
+.work-card:hover .work-image {
+  filter: grayscale(0);
+  transform: scale(1.04);
+}
+
+.work-card:hover .project-overlay {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.work-card:hover .card-underline {
+  transform: scaleX(1);
+}
+
+.project-overlay,
+.card-underline,
+.button-fill {
+  will-change: transform;
+}
+
+.card-underline {
+  transform: scaleX(0);
+}
+
+.input-field {
+  border: 0;
+  border-bottom: 1px solid rgba(13, 13, 13, 0.56);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.input-field::placeholder {
+  color: rgba(13, 13, 13, 0.46);
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--acid);
+}
+
+.input-field[data-invalid='true'] {
+  border-color: var(--vermillion);
+  color: var(--vermillion);
+}
+
+.custom-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 60;
+  height: 24px;
+  width: 24px;
+  pointer-events: none;
+  border-radius: 999px;
+  background: var(--acid);
+  mix-blend-mode: difference;
+}
+
+.custom-cursor-ghost {
+  height: 24px;
+  width: 24px;
+  background: rgba(232, 242, 39, 0.24);
+  mix-blend-mode: normal;
+}
+
+.rotating-degree {
+  animation: rotateGlyph 120s linear infinite;
+}
+
+.system-dot {
+  animation: pulseDot 1.6s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes rotateGlyph {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+@keyframes pulseDot {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.72);
+    opacity: 0.6;
+  }
+}
+
+@keyframes badgeBlink {
+  0%,
+  100% {
+    background: transparent;
+  }
+  50% {
+    background: rgba(232, 242, 39, 0.16);
+  }
+}
+
+@media (max-width: 767px) {
+  .work-card {
+    transform: none !important;
+  }
+
+  .project-overlay {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .card-underline {
+    transform: scaleX(1);
+  }
+}

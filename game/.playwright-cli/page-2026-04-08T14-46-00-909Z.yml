@@ -1,0 +1,6 @@
+- generic [ref=e2]:
+  - generic [ref=e3]:
+    - paragraph [ref=e4]: Phaser 3 Survival Prototype
+    - heading "Grow, hunt, evolve." [level=1] [ref=e5]
+    - paragraph [ref=e6]: Glide toward the cursor, absorb food and weaker molecules, and survive long enough to reach Stage 5.
+  - generic "Game canvas" [ref=e7]
